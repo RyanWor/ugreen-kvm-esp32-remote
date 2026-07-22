@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="794" height="374" viewBox="0 0 794 374" font-family="ui-monospace,Menlo,Consolas,monospace">
+<rect width="794" height="374" rx="10" fill="#fbfbfd" stroke="#e3e3ea"/>
+<text x="16" y="28" font-size="15" font-weight="700" fill="#1a1a2e">UGREEN KVM &#183; 0x42 key-read response (DIO) per button</text>
+<text x="16" y="46" font-size="11" fill="#7a7a8e">Same bus, same scale. Exactly one data byte changes per button; everything else is identical.</text>
+<line x1="150" y1="58" x2="150" y2="334" stroke="#e6e6ee"/>
+<text x="202" y="54" font-size="10" text-anchor="middle" fill="#9a9aae">cmd</text>
+<line x1="254" y1="58" x2="254" y2="334" stroke="#e6e6ee"/>
+<text x="306" y="54" font-size="10" text-anchor="middle" fill="#9a9aae">d1</text>
+<line x1="358" y1="58" x2="358" y2="334" stroke="#e6e6ee"/>
+<text x="410" y="54" font-size="10" text-anchor="middle" fill="#9a9aae">d2</text>
+<line x1="462" y1="58" x2="462" y2="334" stroke="#e6e6ee"/>
+<text x="514" y="54" font-size="10" text-anchor="middle" fill="#9a9aae">d3</text>
+<line x1="566" y1="58" x2="566" y2="334" stroke="#e6e6ee"/>
+<text x="618" y="54" font-size="10" text-anchor="middle" fill="#9a9aae">d4</text>
+<line x1="670" y1="58" x2="670" y2="334" stroke="#e6e6ee"/>
+<text x="722" y="54" font-size="10" text-anchor="middle" fill="#9a9aae">d5</text>
+<line x1="774" y1="58" x2="774" y2="334" stroke="#e6e6ee"/>
+<text x="16" y="84" font-size="12" font-weight="700" fill="#1a1a2e">Idle</text>
+<text x="16" y="100" font-size="10" fill="#5a5a6e">42 00 00 00 00 00</text>
+<path d="M150,102 L163,102 L163,102 L163,74 L176,74 L176,74 L176,102 L189,102 L202,102 L215,102 L228,102 L228,102 L228,74 L241,74 L241,74 L241,102 L254,102 L267,102 L280,102 L293,102 L306,102 L319,102 L332,102 L345,102 L358,102 L371,102 L384,102 L397,102 L410,102 L423,102 L436,102 L449,102 L462,102 L475,102 L488,102 L501,102 L514,102 L527,102 L540,102 L553,102 L566,102 L579,102 L592,102 L605,102 L618,102 L631,102 L644,102 L657,102 L670,102 L683,102 L696,102 L709,102 L722,102 L735,102 L748,102 L761,102 L774,102" fill="none" stroke="#178a6e" stroke-width="2"/>
+<rect x="462" y="120" width="104" height="46" fill="#ffb70026" stroke="#e0930088"/>
+<text x="16" y="138" font-size="12" font-weight="700" fill="#1a1a2e">Input 1</text>
+<text x="16" y="154" font-size="10" fill="#5a5a6e">42 00 00 01 00 00</text>
+<path d="M150,156 L163,156 L163,156 L163,128 L176,128 L176,128 L176,156 L189,156 L202,156 L215,156 L228,156 L228,156 L228,128 L241,128 L241,128 L241,156 L254,156 L267,156 L280,156 L293,156 L306,156 L319,156 L332,156 L345,156 L358,156 L371,156 L384,156 L397,156 L410,156 L423,156 L436,156 L449,156 L462,156 L462,156 L462,128 L475,128 L475,128 L475,156 L488,156 L501,156 L514,156 L527,156 L540,156 L553,156 L566,156 L579,156 L592,156 L605,156 L618,156 L631,156 L644,156 L657,156 L670,156 L683,156 L696,156 L709,156 L722,156 L735,156 L748,156 L761,156 L774,156" fill="none" stroke="#178a6e" stroke-width="2"/>
+<rect x="462" y="174" width="104" height="46" fill="#ffb70026" stroke="#e0930088"/>
+<text x="16" y="192" font-size="12" font-weight="700" fill="#1a1a2e">Input 2</text>
+<text x="16" y="208" font-size="10" fill="#5a5a6e">42 00 00 08 00 00</text>
+<path d="M150,210 L163,210 L163,210 L163,182 L176,182 L176,182 L176,210 L189,210 L202,210 L215,210 L228,210 L228,210 L228,182 L241,182 L241,182 L241,210 L254,210 L267,210 L280,210 L293,210 L306,210 L319,210 L332,210 L345,210 L358,210 L371,210 L384,210 L397,210 L410,210 L423,210 L436,210 L449,210 L462,210 L475,210 L488,210 L501,210 L501,210 L501,182 L514,182 L514,182 L514,210 L527,210 L540,210 L553,210 L566,210 L579,210 L592,210 L605,210 L618,210 L631,210 L644,210 L657,210 L670,210 L683,210 L696,210 L709,210 L722,210 L735,210 L748,210 L761,210 L774,210" fill="none" stroke="#178a6e" stroke-width="2"/>
+<rect x="566" y="228" width="104" height="46" fill="#ffb70026" stroke="#e0930088"/>
+<text x="16" y="246" font-size="12" font-weight="700" fill="#1a1a2e">Input 3</text>
+<text x="16" y="262" font-size="10" fill="#5a5a6e">42 00 00 00 01 00</text>
+<path d="M150,264 L163,264 L163,264 L163,236 L176,236 L176,236 L176,264 L189,264 L202,264 L215,264 L228,264 L228,264 L228,236 L241,236 L241,236 L241,264 L254,264 L267,264 L280,264 L293,264 L306,264 L319,264 L332,264 L345,264 L358,264 L371,264 L384,264 L397,264 L410,264 L423,264 L436,264 L449,264 L462,264 L475,264 L488,264 L501,264 L514,264 L527,264 L540,264 L553,264 L566,264 L566,264 L566,236 L579,236 L579,236 L579,264 L592,264 L605,264 L618,264 L631,264 L644,264 L657,264 L670,264 L683,264 L696,264 L709,264 L722,264 L735,264 L748,264 L761,264 L774,264" fill="none" stroke="#178a6e" stroke-width="2"/>
+<rect x="566" y="282" width="104" height="46" fill="#ffb70026" stroke="#e0930088"/>
+<text x="16" y="300" font-size="12" font-weight="700" fill="#1a1a2e">Input 4</text>
+<text x="16" y="316" font-size="10" fill="#5a5a6e">42 00 00 00 08 00</text>
+<path d="M150,318 L163,318 L163,318 L163,290 L176,290 L176,290 L176,318 L189,318 L202,318 L215,318 L228,318 L228,318 L228,290 L241,290 L241,290 L241,318 L254,318 L267,318 L280,318 L293,318 L306,318 L319,318 L332,318 L345,318 L358,318 L371,318 L384,318 L397,318 L410,318 L423,318 L436,318 L449,318 L462,318 L475,318 L488,318 L501,318 L514,318 L527,318 L540,318 L553,318 L566,318 L579,318 L592,318 L605,318 L605,318 L605,290 L618,290 L618,290 L618,318 L631,318 L644,318 L657,318 L670,318 L683,318 L696,318 L709,318 L722,318 L735,318 L748,318 L761,318 L774,318" fill="none" stroke="#178a6e" stroke-width="2"/>
+</svg>

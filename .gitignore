@@ -1,0 +1,26 @@
+# Never commit real secrets
+secrets.yaml
+
+# ESPHome build artifacts
+.esphome/
+*.bin
+build/
+
+# macOS junk
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+.fseventsd
+.DocumentRevisions-V100
+.TemporaryItems
+
+# Editor / OS misc
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/

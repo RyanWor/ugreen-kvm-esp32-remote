@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="756" height="250" viewBox="0 0 756 250" font-family="ui-monospace,Menlo,Consolas,monospace">
+<rect x="0" y="0" width="756" height="250" rx="10" fill="#fbfbfd" stroke="#e3e3ea"/>
+<text x="16" y="26" font-size="14" font-weight="700" fill="#1a1a2e">0x42 key-read &#183; Input 4 (byte4=0x08)</text>
+<text x="740" y="26" font-size="12" text-anchor="end" fill="#5a5a6e">42 00 00 00 08 00</text>
+<rect x="512" y="40" width="112" height="176" fill="#ffb70022" stroke="#e0930088"/>
+<text x="12" y="64" font-size="12" fill="#5a5a6e">STB</text>
+<text x="12" y="114" font-size="12" fill="#5a5a6e">CLK</text>
+<text x="12" y="166" font-size="12" fill="#5a5a6e">DIO</text>
+<line x1="64" y1="40" x2="64" y2="216" stroke="#e6e6ee"/>
+<text x="120" y="206" font-size="12" text-anchor="middle" fill="#3a3a4e" font-weight="400">42</text>
+<text x="120" y="230" font-size="10" text-anchor="middle" fill="#9a9aae">cmd</text>
+<line x1="176" y1="40" x2="176" y2="216" stroke="#e6e6ee"/>
+<text x="232" y="206" font-size="12" text-anchor="middle" fill="#3a3a4e" font-weight="400">00</text>
+<text x="232" y="230" font-size="10" text-anchor="middle" fill="#9a9aae">data</text>
+<line x1="288" y1="40" x2="288" y2="216" stroke="#e6e6ee"/>
+<text x="344" y="206" font-size="12" text-anchor="middle" fill="#3a3a4e" font-weight="400">00</text>
+<text x="344" y="230" font-size="10" text-anchor="middle" fill="#9a9aae">data</text>
+<line x1="400" y1="40" x2="400" y2="216" stroke="#e6e6ee"/>
+<text x="456" y="206" font-size="12" text-anchor="middle" fill="#3a3a4e" font-weight="400">00</text>
+<text x="456" y="230" font-size="10" text-anchor="middle" fill="#9a9aae">data</text>
+<line x1="512" y1="40" x2="512" y2="216" stroke="#e6e6ee"/>
+<text x="568" y="206" font-size="12" text-anchor="middle" fill="#b26b00" font-weight="700">08</text>
+<text x="568" y="230" font-size="10" text-anchor="middle" fill="#9a9aae">data</text>
+<line x1="624" y1="40" x2="624" y2="216" stroke="#e6e6ee"/>
+<text x="680" y="206" font-size="12" text-anchor="middle" fill="#3a3a4e" font-weight="400">00</text>
+<text x="680" y="230" font-size="10" text-anchor="middle" fill="#9a9aae">data</text>
+<line x1="736" y1="40" x2="736" y2="216" stroke="#e6e6ee"/>
+<path d="M58,48 L64,48 L64,72 L736,72 L736,48 L742,48" fill="none" stroke="#d1495b" stroke-width="2"/>
+<path d="M64,98 L64,98 L64,122 L71,122 L71,98 L78,98 L78,122 L85,122 L85,98 L92,98 L92,122 L99,122 L99,98 L106,98 L106,122 L113,122 L113,98 L120,98 L120,122 L127,122 L127,98 L134,98 L134,122 L141,122 L141,98 L148,98 L148,122 L155,122 L155,98 L162,98 L162,122 L169,122 L169,98 L176,98 L176,122 L183,122 L183,98 L190,98 L190,122 L197,122 L197,98 L204,98 L204,122 L211,122 L211,98 L218,98 L218,122 L225,122 L225,98 L232,98 L232,122 L239,122 L239,98 L246,98 L246,122 L253,122 L253,98 L260,98 L260,122 L267,122 L267,98 L274,98 L274,122 L281,122 L281,98 L288,98 L288,122 L295,122 L295,98 L302,98 L302,122 L309,122 L309,98 L316,98 L316,122 L323,122 L323,98 L330,98 L330,122 L337,122 L337,98 L344,98 L344,122 L351,122 L351,98 L358,98 L358,122 L365,122 L365,98 L372,98 L372,122 L379,122 L379,98 L386,98 L386,122 L393,122 L393,98 L400,98 L400,122 L407,122 L407,98 L414,98 L414,122 L421,122 L421,98 L428,98 L428,122 L435,122 L435,98 L442,98 L442,122 L449,122 L449,98 L456,98 L456,122 L463,122 L463,98 L470,98 L470,122 L477,122 L477,98 L484,98 L484,122 L491,122 L491,98 L498,98 L498,122 L505,122 L505,98 L512,98 L512,122 L519,122 L519,98 L526,98 L526,122 L533,122 L533,98 L540,98 L540,122 L547,122 L547,98 L554,98 L554,122 L561,122 L561,98 L568,98 L568,122 L575,122 L575,98 L582,98 L582,122 L589,122 L589,98 L596,98 L596,122 L603,122 L603,98 L610,98 L610,122 L617,122 L617,98 L624,98 L624,122 L631,122 L631,98 L638,98 L638,122 L645,122 L645,98 L652,98 L652,122 L659,122 L659,98 L666,98 L666,122 L673,122 L673,98 L680,98 L680,122 L687,122 L687,98 L694,98 L694,122 L701,122 L701,98 L708,98 L708,122 L715,122 L715,98 L722,98 L722,122 L729,122 L729,98 L736,98" fill="none" stroke="#7a8ba6" stroke-width="1.5"/>
+<path d="M64,174 L78,174 L78,174 L78,150 L92,150 L92,150 L92,174 L106,174 L120,174 L134,174 L148,174 L148,174 L148,150 L162,150 L162,150 L162,174 L176,174 L190,174 L204,174 L218,174 L232,174 L246,174 L260,174 L274,174 L288,174 L302,174 L316,174 L330,174 L344,174 L358,174 L372,174 L386,174 L400,174 L414,174 L428,174 L442,174 L456,174 L470,174 L484,174 L498,174 L512,174 L526,174 L540,174 L554,174 L554,174 L554,150 L568,150 L568,150 L568,174 L582,174 L596,174 L610,174 L624,174 L638,174 L652,174 L666,174 L680,174 L694,174 L708,174 L722,174 L736,174" fill="none" stroke="#178a6e" stroke-width="2"/>
+</svg>

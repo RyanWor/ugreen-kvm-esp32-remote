@@ -1,0 +1,157 @@
+# ugreen-kvm-emulator-poe.yaml — PHASE 2: full chip emulation (Olimex ESP32-PoE).
+# The ESP is the SOLE chip on the bus — REMOVE the real remote before running this.
+# Reads active input from 0xC0, and drives the 0x42 response to switch inputs.
+#
+# UEXT wiring (share GND!):  STB->GPIO14  CLK->GPIO15  DIO->GPIO13  GND->UEXT GND
+# Put kvm_emulator.h in the SAME folder as this YAML.
+#
+# SAFE BRING-UP:
+#   1. Flash with "Emulation Enabled" OFF (default). The ESP drives an all-zero
+#      key response (no phantom presses) and reports Active Input. Watch the
+#      logic analyzer: the 0x42 response should read 42 00 00 00 00 00.
+#   2. When that looks right, turn ON "Emulation Enabled" and use "Set Input".
+
+esphome:
+  name: kvm-emulator
+  friendly_name: KVM Emulator
+  includes:
+    - kvm_emulator.h
+  on_boot:
+    - priority: -100
+      then:
+        - lambda: 'kvm::begin();'
+
+esp32:
+  board: esp32-poe
+  framework:
+    type: arduino
+
+ethernet:
+  type: LAN8720
+  mdc_pin: GPIO23
+  mdio_pin: GPIO18
+  clk:
+    mode: CLK_OUT
+    pin: 17
+  phy_addr: 0
+  power_pin: GPIO12
+
+logger:
+  level: DEBUG
+
+api:
+  encryption:
+    key: !secret api_encryption_key
+
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
+web_server:
+  port: 80
+  version: 3
+
+# Master safety: OFF = drive all-zeros (never switches). ON = allow presses.
+switch:
+  - platform: template
+    name: "Emulation Enabled"
+    id: emu_enabled
+    optimistic: true
+    restore_mode: RESTORE_DEFAULT_OFF
+    turn_on_action:
+      - lambda: 'kvm::emulation_enabled = true;'
+      - logger.log: "EMULATION ENABLED — presses will switch the KVM"
+    turn_off_action:
+      - lambda: 'kvm::emulation_enabled = false; kvm::target_input = 0;'
+      - logger.log: "emulation disabled (drives all-zeros)"
+
+# Direct-select: pick an input; the ESP presses until 0xC0 confirms the switch.
+# All four inputs. (Tip: leave one input physically unplugged and rename its
+# option to "Off" — selecting it switches to the dead port and drops the
+# display, handy for single-screen remote-desktop sessions.)
+select:
+  - platform: template
+    name: "KVM Input"
+    id: kvm_input_select
+    icon: "mdi:monitor"
+    optimistic: true
+    options: ["Input 1", "Input 2", "Input 3", "Input 4"]
+    set_action:
+      - lambda: |-
+          if      (x == "Input 1") kvm::target_input = 1;
+          else if (x == "Input 2") kvm::target_input = 2;
+          else if (x == "Input 3") kvm::target_input = 3;
+          else if (x == "Input 4") kvm::target_input = 4;
+          ESP_LOGI("kvm", "target set -> input %d (\"%s\")", kvm::target_input, x.c_str());
+
+text_sensor:
+  - platform: template
+    name: "Active Input"
+    update_interval: 500ms
+    lambda: |-
+      int i = kvm::active_input();
+      if (i == 0) return {"Unknown"};
+      char buf[16];
+      snprintf(buf, sizeof(buf), "Input %d", i);
+      return {std::string(buf)};
+    on_value:
+      - lambda: 'ESP_LOGI("kvm", "ACTIVE INPUT -> %s (led=0x%02X)", x.c_str(), kvm::led_bitmap);'
+
+sensor:
+  - platform: template
+    name: "Active Input Number"
+    accuracy_decimals: 0
+    update_interval: 500ms
+    # Only push to HA when the value actually changes -> graph shows a solid
+    # block per input instead of a point every 500ms. Big DB savings too.
+    filters:
+      - delta: 0.5
+    lambda: 'return (float) kvm::active_input();'
+
+  - platform: template
+    name: "Bus Transactions"
+    accuracy_decimals: 0
+    update_interval: 30s          # diagnostic only; slow is fine
+    entity_category: diagnostic
+    lambda: 'return (float) kvm::tx_count;'
+
+# Closed loop: once the KVM confirms it reached the target, stop pressing.
+interval:
+  - interval: 100ms
+    then:
+      - lambda: |-
+          // Closed loop: release once the KVM confirms it reached the target.
+          if (kvm::target_input != 0 && kvm::active_input() == kvm::target_input) {
+            ESP_LOGI("kvm", "reached input %d — releasing", kvm::target_input);
+            kvm::target_input = 0;
+          }
+          // Log only when the decoded active input actually changes.
+          static int last_logged = -1;
+          int a = kvm::active_input();
+          if (a != last_logged) {
+            last_logged = a;
+            ESP_LOGI("kvm", "active=%d  led=0x%02X  tx=%u  key=%u  emu=%d",
+                     a, kvm::led_bitmap, (unsigned) kvm::tx_count,
+                     (unsigned) kvm::key_tx_count, (int) kvm::emulation_enabled);
+            // Reflect the REAL active input in the dropdown, so a manual button
+            // press on the KVM box updates the HA select too. Map input 4 to
+            // Only push when it differs from what's shown.
+            const char* opt = (a == 1) ? "Input 1" :
+                              (a == 2) ? "Input 2" :
+                              (a == 3) ? "Input 3" :
+                              (a == 4) ? "Input 4" : nullptr;
+            if (opt != nullptr) {
+              // publish_state reflects the real input WITHOUT triggering
+              // set_action. Using make_call()/set_option() here would run
+              // set_action -> set target_input, and a transient read glitch
+              // would then drive a phantom press (uncommanded input drift).
+              id(kvm_input_select).publish_state(opt);
+            }
+          }
+  # Slow keepalive so you can confirm the bus is still alive at a glance.
+  - interval: 60s
+    then:
+      - lambda: |-
+          ESP_LOGD("kvm", "alive: tx=%u key=%u active=%d",
+                   (unsigned) kvm::tx_count, (unsigned) kvm::key_tx_count,
+                   kvm::active_input());
